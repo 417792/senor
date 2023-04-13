@@ -1,20 +1,58 @@
-music.onEvent(MusicEvent.MelodyNotePlayed, function () {
-	
-})
+let x = 0
+let y = 0
+let 音量 = 0
 basic.forever(function () {
-    if (input.compassHeading() >= 0 && input.compassHeading() < 90) {
-        music.playMelody("D - D E F D - D ", 352)
-        music.playMelody("D E F G F E F E ", 352)
-        music.playMelody("C D - - - - - - ", 352)
-        led.toggle(music.volume(), music.volume())
+    basic.pause(100)
+    音量 = input.soundLevel()
+    if (input.soundLevel() >= 80) {
+        y = 4
+        for (let y = 0; y <= 4; y++) {
+            basic.pause(10)
+            for (let x = 0; x <= 4; x++) {
+                led.plot(4 - x, 4 - y)
+            }
+        }
         basic.pause(100)
-    } else if (false) {
-    	
-    } else if (false) {
-    	
-    } else if (false) {
-    	
+        basic.clearScreen()
+    } else if (input.soundLevel() < 80 && input.soundLevel() >= 60) {
+        y = 3
+        for (let y = 0; y <= 3; y++) {
+            basic.pause(10)
+            for (let x = 0; x <= 4; x++) {
+                led.plot(4 - x, 4 - y)
+            }
+        }
+        basic.pause(100)
+        basic.clearScreen()
+    } else if (input.soundLevel() < 60 && input.soundLevel() >= 40) {
+        y = 2
+        for (let y = 0; y <= 2; y++) {
+            basic.pause(10)
+            for (let x = 0; x <= 4; x++) {
+                led.plot(4 - x, 4 - y)
+            }
+        }
+        basic.pause(100)
+        basic.clearScreen()
+    } else if (input.soundLevel() < 40 && input.soundLevel() >= 20) {
+        y = 1
+        for (let y = 0; y <= 1; y++) {
+            basic.pause(10)
+            for (let x = 0; x <= 4; x++) {
+                led.plot(4 - x, 4 - y)
+            }
+        }
+        basic.pause(100)
+        basic.clearScreen()
     } else {
-    	
+        y = 0
+        for (let y = 0; y <= 0; y++) {
+            basic.pause(10)
+            for (let x = 0; x <= 4; x++) {
+                led.plot(4 - x, 4 - y)
+            }
+        }
+        basic.pause(100)
+        basic.clearScreen()
     }
 })
